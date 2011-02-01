@@ -22,11 +22,16 @@ Rectangle {
         front:  Rectangle {
             id: basic_view
             anchors.fill: parent
+            gradient: Gradient {
+                GradientStop { position: 0; color: "black" }
+                GradientStop { position: 1.0; color: "gray" }
+            }
 
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "SHOW ME MY FACE APP"
                 font.pixelSize: 25
+                color: "white"
             }
 
             Image {
@@ -40,7 +45,7 @@ Rectangle {
                 id: my_name
                 anchors.verticalCenter: my_picture.bottom
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: facebook.me.name
+                text: facebook.me ? facebook.me.name : ""
                 color: "silver"
                 font.pixelSize: 18
             }
@@ -54,7 +59,7 @@ Rectangle {
                 Facebook {
                     id: facebook
                     property string facebook_display_style: "touch" // or "wap"
-                    property string facebook_application_id: "<YOUR FACEBOOK APP ID>"
+                    property string facebook_application_id: "115988691788199"
 
                     function whenUserIsAuthenticated(userid, usertoken){
                         console.log("do something if u want to.");
