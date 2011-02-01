@@ -12,7 +12,7 @@ import "helpers.js" as Helpers
 
 WebView {
     id: fbAuth
-    url: fb_authentication_url
+    url: fb_app_id ? fb_authentication_url : ""
     anchors.fill: parent
     settings.javascriptEnabled: false //false
     property string fb_display: facebook_display_style // "wap" OR "touch"
