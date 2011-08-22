@@ -61,8 +61,10 @@ Rectangle {
                     property string facebook_display_style: "touch" // or "wap"
                     property string facebook_application_id: "<YOUR FACEBOOK APP ID>"
 
-                    function whenUserIsAuthenticated(userid, usertoken){
+                    onUserAuthenticated: {
                         console.log("do something if u want to.");
+                        console.log("user_id: " + user_id);
+                        console.log("user_token: " + user_token);
                     }
                 }
         }

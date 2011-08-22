@@ -28,6 +28,8 @@ WebView {
     property string my_pic_url: ""
     property bool user_is_authenticated: false
 
+    signal userAuthenticated(string user_id, string user_token);
+
     // functions
 
     // saves fb token and fb user id
@@ -56,15 +58,10 @@ WebView {
             user_is_authenticated = true; // set booolean
             my_graph(function(){me = this});
             set_my_pic();
-            whenUserIsAuthenticated(user_facebook_id, user_facebook_token);
+            fbAuth.userAuthenticated(user_facebook_id, user_facebook_token);
+
             return true
         }
-    }
-
-    function whenUserIsAuthenticated(user_id, user_token){
-        console.log("User authenticated and received token: "+user_facebook_token);
-        console.log("User FB id is: "+user_facebook_id);
-        console.log("Remember to override Facebook.whenUserIsAuthenticated(userid, usertoken) function.")
     }
 
     // some graph stuff
